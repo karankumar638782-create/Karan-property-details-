@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Karan Property Details - Buy, rent and enquire about residential and commercial properties.">
+  <title>Karan Property Details</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Arial,Helvetica,sans-serif;background:#f5f7fb;color:#172033;line-height:1.5}
+    a{text-decoration:none;color:inherit}
+    .container{width:min(1120px,92%);margin:auto}
+    header{background:#0b1f3a;color:white;position:sticky;top:0;z-index:20;box-shadow:0 2px 12px #0002}
+    .nav{height:68px;display:flex;align-items:center;justify-content:space-between}
+    .logo{font-size:21px;font-weight:800}.logo span{color:#f5b942}
+    nav{display:flex;gap:24px;font-size:14px}
+    nav a:hover{color:#f5b942}
+    .menu{display:none;background:none;border:0;color:white;font-size:27px}
+    .hero{background:linear-gradient(135deg,#0b1f3a,#164d7b);color:white;padding:62px 0 75px}
+    .hero h1{font-size:clamp(32px,6vw,56px);line-height:1.05;max-width:720px;margin-bottom:15px}
+    .hero p{max-width:650px;color:#dce9f6;margin-bottom:28px}
+    .search{background:white;padding:15px;border-radius:14px;display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:10px;max-width:900px;box-shadow:0 12px 35px #001b3d55}
+    select,.search input{width:100%;padding:13px;border:1px solid #d8dee8;border-radius:9px;background:white;font-size:14px}
+    button{border:0;border-radius:9px;padding:13px 19px;font-weight:700;cursor:pointer}
+    .primary{background:#f5b942;color:#152238}.primary:hover{background:#ffc95e}
+    section{padding:52px 0}
+    .section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:22px;gap:15px}
+    .section-head h2{font-size:28px}.muted{color:#667085;font-size:14px}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .card{background:white;border-radius:15px;overflow:hidden;box-shadow:0 5px 20px #102a4312;border:1px solid #e7ebf1}
+    .photo{height:190px;background:linear-gradient(135deg,#dce8f2,#a9bfd0);display:flex;align-items:center;justify-content:center;color:#35506b;font-weight:700}
+    .card-body{padding:17px}.tag{display:inline-block;background:#eaf5ee;color:#237a43;padding:5px 9px;border-radius:20px;font-size:12px;font-weight:700;margin-bottom:8px}
+    .card h3{font-size:18px;margin-bottom:5px}.price{font-size:19px;font-weight:800;color:#0b4b78;margin:8px 0}
+    .meta{font-size:13px;color:#697586;margin-bottom:14px}
+    .btnrow{display:flex;gap:8px}.btnrow a{flex:1;text-align:center;padding:10px;border-radius:8px;background:#0b4b78;color:white;font-size:13px;font-weight:700}
+    .btnrow a.secondary{background:#eef3f8;color:#0b4b78}
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .feature{background:white;padding:22px;border-radius:13px;border:1px solid #e7ebf1}.feature b{display:block;margin:7px 0}.icon{font-size:28px}
+
+    .post-property{background:#eef4f9}
+    .post-form{background:white;padding:22px;border-radius:14px;border:1px solid #e1e7ee;display:grid;gap:12px;box-shadow:0 5px 20px #102a4310}
+    .form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+    .post-form input,.post-form select{width:100%;padding:13px;border:1px solid #d8dee8;border-radius:9px;background:white;font-size:14px}
+    .post-form textarea{width:100%;min-height:110px}
+    .about{background:#fff}.contact{background:#0b1f3a;color:white}.contact .muted{color:#c8d5e2}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:35px}
+    form{background:white;padding:20px;border-radius:14px;color:#172033;display:grid;gap:10px}
+    textarea{min-height:100px;resize:vertical;padding:12px;border:1px solid #d8dee8;border-radius:9px}
+    footer{background:#07162a;color:#b9c7d5;padding:24px 0;text-align:center;font-size:13px}
+    .float-wa{position:fixed;right:18px;bottom:18px;background:#20b85a;color:white;width:54px;height:54px;border-radius:50%;display:grid;place-items:center;font-size:25px;box-shadow:0 6px 20px #0003;z-index:30}
+    .empty{display:none;text-align:center;padding:25px;background:white;border-radius:12px;color:#667085}
+    @media(max-width:800px){
+      nav{display:none}.menu{display:block}.cards{grid-template-columns:1fr}.features{grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr}
+      .search{grid-template-columns:1fr}.hero{padding:48px 0 58px}.section-head{align-items:start;flex-direction:column}.form-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a class="logo" href="#">Karan <span>Property Details</span></a>
+    <button class="menu" onclick="toggleMenu()" aria-label="Menu">☰</button>
+    <nav id="nav">
+      <a href="#home">Home</a><a href="#properties">Properties</a><a href="#post-property">Post Property</a><a href="#about">About</a><a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="container">
+    <h1>Find Your Dream Property</h1>
+    <p>Buy, rent or enquire about residential and commercial properties with Karan Property Details.</p>
+    <div class="search">
+      <select id="purpose"><option value="all">Buy / Rent</option><option value="buy">Buy</option><option value="rent">Rent</option></select>
+      <select id="type"><option value="all">Property Type</option><option value="flat">Flat</option><option value="house">House</option><option value="shop">Shop</option><option value="office">Office</option></select>
+      <input id="location" placeholder="Enter location e.g. Sector 73">
+      <button class="primary" onclick="searchProperties()">Search</button>
+    </div>
+  </div>
+</section>
+
+<section id="properties">
+  <div class="container">
+    <div class="section-head">
+      <div><h2>Featured Properties</h2><p class="muted">Update these sample listings with your real properties.</p></div>
+      <button class="primary" onclick="document.getElementById('post-property').scrollIntoView({behavior:'smooth'})">Post Your Property</button>
+    </div>
+    <div class="cards" id="cards">
+      <article class="card" data-purpose="rent" data-type="flat" data-location="sector 73 noida">
+        <div class="photo">PROPERTY PHOTO</div><div class="card-body">
+          <span class="tag">FOR RENT</span><h3>2 BHK Flat</h3><div class="price">₹25,000 / month</div>
+          <div class="meta">📍 Sector 73, Noida &nbsp; • &nbsp; 2 BHK</div>
+          <div class="btnrow"><a href="#contact">Enquire</a><a class="secondary" href="tel:+916387821154">Call</a></div>
+        </div>
+      </article>
+      <article class="card" data-purpose="buy" data-type="house" data-location="noida sector 73">
+        <div class="photo">PROPERTY PHOTO</div><div class="card-body">
+          <span class="tag">FOR SALE</span><h3>3 BHK Independent House</h3><div class="price">₹75 Lakh</div>
+          <div class="meta">📍 Sector 73, Noida &nbsp; • &nbsp; 3 BHK</div>
+          <div class="btnrow"><a href="#contact">Enquire</a><a class="secondary" href="tel:+916387821154">Call</a></div>
+        </div>
+      </article>
+      <article class="card" data-purpose="rent" data-type="shop" data-location="sector 62 noida">
+        <div class="photo">PROPERTY PHOTO</div><div class="card-body">
+          <span class="tag">FOR RENT</span><h3>Commercial Shop</h3><div class="price">₹35,000 / month</div>
+          <div class="meta">📍 Sector 62, Noida &nbsp; • &nbsp; Commercial</div>
+          <div class="btnrow"><a href="#contact">Enquire</a><a class="secondary" href="tel:+916387821154">Call</a></div>
+        </div>
+      </article>
+    </div>
+    <div class="empty" id="empty">No matching property found. Try another search or contact us.</div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head"><div><h2>Why Choose Us?</h2><p class="muted">Simple, helpful property service.</p></div></div>
+    <div class="features">
+      <div class="feature"><div class="icon">🏠</div><b>Property Options</b><span class="muted">Residential and commercial options.</span></div>
+      <div class="feature"><div class="icon">📍</div><b>Local Support</b><span class="muted">Get help with location and site visits.</span></div>
+      <div class="feature"><div class="icon">🤝</div><b>Easy Enquiry</b><span class="muted">Call or WhatsApp for property details.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container">
+    <h2>About Karan Property Details</h2>
+    <p class="muted" style="margin-top:10px;max-width:760px">We help buyers, tenants and property owners connect for residential and commercial property requirements. Contact us for property details and site-visit enquiries.</p>
+  </div>
+</section>
+
+
+<section class="post-property" id="post-property">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <h2>Post Your Property</h2>
+        <p class="muted">Property details भरें और enquiry WhatsApp पर भेजें.</p>
+      </div>
+    </div>
+    <form class="post-form" onsubmit="postProperty(event)">
+      <div class="form-grid">
+        <input id="ownerName" required placeholder="Owner name">
+        <input id="ownerPhone" required placeholder="Mobile number">
+        <select id="postPurpose" required>
+          <option value="">Select: Buy / Rent</option>
+          <option>For Rent</option>
+          <option>For Sale</option>
+        </select>
+        <select id="postType" required>
+          <option value="">Property type</option>
+          <option>Flat</option><option>House</option><option>Shop</option><option>Office</option><option>Plot</option>
+        </select>
+        <input id="postLocation" required placeholder="Location / Sector">
+        <input id="postPrice" required placeholder="Rent / Sale price">
+        <input id="postBhk" placeholder="BHK (if applicable)">
+        <input id="postPhoto" type="url" placeholder="Photo link (optional)">
+      </div>
+      <textarea id="postDescription" placeholder="Property details: floor, furnishing, parking, etc."></textarea>
+      <button class="primary" type="submit">📲 Post Property on WhatsApp</button>
+    </form>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container contact-grid">
+    <div>
+      <h2>Contact Us</h2>
+      <p class="muted" style="margin:10px 0 18px">Tell us what property you are looking for.</p>
+      <p>📞 <a href="tel:+916387821154">6387821154</a></p>
+      <p>✉️ <a href="mailto:karankumar638782@gmail.com">karankumar638782@gmail.com</a></p>
+      <p>📍 Sector 73, Noida</p>
+    </div>
+    <form onsubmit="sendEnquiry(event)">
+      <input id="name" required placeholder="Your name">
+      <input id="phone" required placeholder="Mobile number">
+      <input id="need" required placeholder="Property requirement (Buy/Rent)">
+      <textarea id="message" placeholder="Location, budget and property type"></textarea>
+      <button class="primary" type="submit">Send Enquiry on WhatsApp</button>
+    </form>
+  </div>
+</section>
+</main>
+
+<a class="float-wa" href="https://wa.me/916387821154?text=Hello%20Karan%20Property%20Details%2C%20I%20want%20property%20details." target="_blank" aria-label="WhatsApp">◉</a>
+<footer>© 2026 Karan Property Details • All rights reserved.</footer>
+
+<script>
+function toggleMenu(){const n=document.getElementById('nav'); n.style.display=n.style.display==='flex'?'none':'flex'; n.style.flexDirection='column'; n.style.position='absolute'; n.style.right='4%'; n.style.top='62px'; n.style.background='#0b1f3a'; n.style.padding='14px'; n.style.borderRadius='10px';}
+function searchProperties(){
+  const p=document.getElementById('purpose').value, t=document.getElementById('type').value, l=document.getElementById('location').value.toLowerCase().trim();
+  let count=0;
+  document.querySelectorAll('.card').forEach(c=>{
+    const ok=(p==='all'||c.dataset.purpose===p)&&(t==='all'||c.dataset.type===t)&&(!l||c.dataset.location.includes(l));
+    c.style.display=ok?'block':'none'; if(ok) count++;
+  });
+  document.getElementById('empty').style.display=count?'none':'block';
+}
+function sendEnquiry(e){
+  e.preventDefault();
+  const name=document.getElementById('name').value, phone=document.getElementById('phone').value, need=document.getElementById('need').value, msg=document.getElementById('message').value;
+  const text=`Hello Karan Property Details,%0AName: ${encodeURIComponent(name)}%0AMobile: ${encodeURIComponent(phone)}%0ARequirement: ${encodeURIComponent(need)}%0ADetails: ${encodeURIComponent(msg)}`;
+  window.open('https://wa.me/916387821154?text='+text,'_blank');
+}
+
+function postProperty(e){
+  e.preventDefault();
+  const fields = {
+    name: document.getElementById('ownerName').value,
+    phone: document.getElementById('ownerPhone').value,
+    purpose: document.getElementById('postPurpose').value,
+    type: document.getElementById('postType').value,
+    location: document.getElementById('postLocation').value,
+    price: document.getElementById('postPrice').value,
+    bhk: document.getElementById('postBhk').value || 'N/A',
+    photo: document.getElementById('postPhoto').value || 'Not provided',
+    description: document.getElementById('postDescription').value || 'Not provided'
+  };
+  const text = `Hello Karan Property Details,%0A%0A🏠 NEW PROPERTY%0AOwner: ${encodeURIComponent(fields.name)}%0AMobile: ${encodeURIComponent(fields.phone)}%0A${encodeURIComponent(fields.purpose)}%0AType: ${encodeURIComponent(fields.type)}%0ALocation: ${encodeURIComponent(fields.location)}%0APrice: ${encodeURIComponent(fields.price)}%0ABHK: ${encodeURIComponent(fields.bhk)}%0APhoto: ${encodeURIComponent(fields.photo)}%0ADetails: ${encodeURIComponent(fields.description)}`;
+  window.open('https://wa.me/916387821154?text='+text,'_blank');
+}
+</script>
+</body>
+</html>
